@@ -4,21 +4,14 @@
 #         self.next = next
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        dummy = ListNode(0, None)
-        dummy.next = head ### mmi
+        if head == None: # bc1 (traversal ends, so return None)
+            return head 
+        elif head.val == val: # bc2 (val matched, so return the next node wo joining cur node)
+            return self.removeElements(head.next, val)
+        else:                 # update (join the next node with cur node)
+            head.next = self.removeElements(head.next, val)
 
-        prev = dummy
-        cur = head
-
-        while cur:
-            if cur.val == val:
-                cur = cur.next
-                prev.next = cur
-            else:
-                prev = prev.next
-                cur = cur.next
-        
-        return dummy.next
+        return head
 
 
 
