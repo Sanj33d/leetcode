@@ -6,7 +6,7 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        # approach 1 (47ms, 20mb): O(n) but set used
+        # approach 1 (47ms, 20mb): O(n) but set used is used to store the NODES (NOT NODE VALS)
         sett = set()
         while head is not None:
             if head not in sett:
