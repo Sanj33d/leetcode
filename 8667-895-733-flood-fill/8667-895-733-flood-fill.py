@@ -7,6 +7,7 @@ class Solution:
 
         def dfs(r, c):
             if 0 <= r < row and 0 <= c < col and image[r][c] == initial_color and image[r][c] != color:
+                ## mmi: image[r][c] != color (else, infinite recursion)
                 image[r][c] = color
 
                 dfs(r-1, c)
